@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function mostra(conteudo) {
+            document.write(conteudo);
+        }
+
+        function mostraH3(conteudo) {
+            document.write("<h3>" + conteudo + "</h3>");
+        }
+
+        function traço() {
+            document.write("<hr>");
+        }
+
+        function PulaLinha() {
+            document.write("<br>");
+        }
+
+        function PulaLinha2() {
+            document.write("<br>");
+            document.write("<br>");
+        }
+
+        function Cabecalho() {
+            mostra("<h1>>>COMEX<<</h1>");
+            mostra("<h2>:: Lista de Clientes</h2>");
+            traço();
+        }
+
+        anoAtual = prompt("Digite o ano atual:");
+        anoFulano = 2006;
+        anoBeltrano = 2000;
+        anoSicrano = 1950;
+        idadeFulano = anoAtual - anoFulano;
+        idadeBeltrano = anoAtual - anoBeltrano;
+        idadeSicrano = anoAtual - anoSicrano;
+        somaIdades = idadeFulano + idadeBeltrano + idadeSicrano;
+        mediaIdades = somaIdades / 3;
+
+        function CalcularEtaria(idade) {
+            if (idade <= 17) {
+                return ("ADOLESCENTE");
+            }
+
+            else if (idade >= 18 && idade <= 29) {
+                return ("JOVEM");
+            }
+
+            else if (idade >= 30 && idade <= 59) {
+                return ("ADULTO");
+            }
+            else if (idade >= 60) {
+                return ("IDOSO");
+            }
+        }
+
+        var QuantClientes = prompt("Informe o numero de clientes:");
+        var CodAtual = 1;
+        function testeForClientes() {
+            var idadeCliente = 0;
+            for (ClienteAtual = 0; ClienteAtual < QuantClientes; ClienteAtual++) {
+                mostraH3("- Código: " + CodAtual);
+                PulaLinha();
+                var nomeCliente = prompt("Digite o nome do Cliente " + CodAtual + ": ");
+                mostra("Nome: " + nomeCliente);
+                PulaLinha2();
+                CodAtual++;
+                var MesCliente = prompt("Informe o mês de nascimento do cliente.");
+                mostra("Mês de nascimento: " + MesCliente);
+                PulaLinha2();
+                var AnoCliente = prompt("Informe o ano de nascimento do cliente.");
+                mostra("Ano de nascimento: " + AnoCliente);
+                PulaLinha2();
+                traço();
+                idadeCliente += anoAtual - AnoCliente;
+            }
+        
+            mostra("*** Estatística ***");
+            PulaLinha2();
+            mostra("Soma das idades: " + idadeCliente);
+            PulaLinha2();
+            mostra("Média das idades: " + Math.round(idadeCliente/QuantClientes));
+        }
+
+        function Conteudo() {
+            mostra("Nome: Fulano");
+            PulaLinha2();
+            mostra("Mês de nascimento: Fevereiro");
+            PulaLinha2();
+            mostra("Ano de nascimento: " + anoFulano);
+            PulaLinha2();
+            var CaractEtariaFulano = CalcularEtaria(idadeFulano);
+            mostra("Característica Etária: " + CaractEtariaFulano);
+            traço();
+            mostraH3("- Código: 2");
+            mostra("Nome: Beltrano");
+            PulaLinha2();
+            mostra("Mês de nascimento: Maio");
+            PulaLinha2();
+            mostra("Ano de nascimento: " + anoBeltrano);
+            PulaLinha2();
+            var CaractEtariaBeltrano = CalcularEtaria(idadeBeltrano);
+            mostra("Característica Etária: " + CaractEtariaBeltrano);
+            traço();
+            mostraH3("- Código: 3");
+            mostra("Nome: Sicrano");
+            PulaLinha2();
+            mostra("Mês de nascimento: Novembro");
+            PulaLinha2();
+            mostra("Ano de nascimento: " + anoSicrano);
+            PulaLinha2();
+            var CaractEtariaSicrano = CalcularEtaria(idadeSicrano);
+            mostra("Característica Etária: " + CaractEtariaSicrano);
+            traço();
+        }
+
+        function Rodape() {
+            traço();
+            mostra(".:: Alura LEVEL UP ::.");
+        }
+
+        Cabecalho();
+        testeForClientes();
+        Rodape();
+
+    </script>
+</body>
+
+</html>

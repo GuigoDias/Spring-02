@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function mostra(conteudo) {
+            document.write(conteudo);
+        }
+
+        function mostraH3(conteudo) {
+            document.write("<h3>" + conteudo + "</h3>");
+
+        }
+
+        function traço() {
+            document.write("<hr>");
+        }
+
+        function PulaLinha() {
+            document.write("<br>");
+        }
+
+        function PulaLinha2() {
+            document.write("<br>");
+            document.write("<br>");
+        }
+
+        var CodAtual = 0;
+        function Apertar(){
+            CodAtual++;
+            let criacao = document.createElement("p");
+            let codigo = document.createTextNode("Código: " + CodAtual);
+            criacao.appendChild(codigo);
+            document.getElementById("Armazem").appendChild(criacao);
+
+            let espaco = document.createElement("br");
+            criacao.appendChild(espaco);
+            document.getElementById("Armazem").appendChild(criacao);
+            
+            let texto = document.createTextNode("Nome: " + input.value);
+            criacao.appendChild(texto);
+            document.getElementById("Armazem").appendChild(criacao);
+        }
+        
+        mostra("<h1>>>COMEX<<</h1>");
+        mostraH3(":: Cadastro de Categorias")
+        traço();
+        mostra("Nome: <input id='inputConteudo'></input>");
+        var input = document.getElementById("inputConteudo");
+        PulaLinha();
+        mostra("<button onclick='Apertar()'>Criar</button>");
+        PulaLinha();
+        traço();
+        mostraH3(":: Lista de Categorias");
+        mostra("<p id='Armazem'></p>")
+        traço();
+        
+    </script>
+</body>
+
+</html>
