@@ -15,20 +15,34 @@ function espacoAppend() {
     campo.appendChild(criacaoO);
 }
 
+function puxarNome(parametro) {
+    return arrayLista[parametro].nome;
+}
 // --------------------------------
 
+
+// --------------------------------
+arrayLista.push(criarObjeto(codAtual, "barriga"));
+
 function salvarTest() {
+    let testador = 0;
+    while (testador < arrayLista.length) {
+        if (input.value == arrayLista[testador].nome) {
+            alert("CATEGORIA JÁ CADASTRADA!");
+            break;
+        } else {
+            testador++;
+        }
+    }
+    if (testador === arrayLista.length) {
         codAtual++;
         arrayLista.push(criarObjeto(codAtual, input.value));
         alert("*** CATEGORIA CADASTRADA COM SUCESSO!!! ***");
+    }
 }
 
 function puxarCodigo(parametro) {
     return arrayLista[parametro].codigoAtual;
-}
-
-function puxarNome(parametro) {
-    return arrayLista[parametro].nome;
 }
 
 function puxarFuncaoCodigo(contador) {
@@ -46,7 +60,7 @@ function puxarFuncaoNome(contador) {
 }
 
 function listaCompleta() {
-    for (var contador = 0; contador <= arrayLista.length; contador++) {
+    for (var contador = 0; contador < arrayLista.length; contador++) {
         espacoAppend();
         puxarFuncaoCodigo(contador);
         puxarFuncaoNome(contador);
