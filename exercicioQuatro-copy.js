@@ -6,13 +6,6 @@ var contadorExibir = 0;
 
 var arrayLista = [];
 
-// ---------------
-
-var contagemHTML = document.querySelectorAll('p').length;
-
-
-// ---------------
-
 function criarObjeto(codigoGo, nomeGo) {
     return { codigoAtual: codigoGo, nome: nomeGo }
 }
@@ -28,11 +21,8 @@ function puxarNome(parametro) {
     return arrayLista[parametro].nome;
 }
 
-
-arrayLista.push(criarObjeto(codAtual, "barriga"));
-
 function salvarTest() {
-    let testador = 0;
+    let testador = -1;
     while (testador < arrayLista.length) {
         if (input.value == arrayLista[testador].nome) {
             alert("CATEGORIA JÁ CADASTRADA!");
@@ -45,16 +35,6 @@ function salvarTest() {
         codAtual++;
         arrayLista.push(criarObjeto(codAtual, input.value));
         alert("*** CATEGORIA CADASTRADA COM SUCESSO!!! ***");
-    }
-}
-
-function testeFinal() {
-    if (contadorCriar == 0) {
-        contadorCriar++;
-        salvarTest();
-        arrayLista.shift();
-    } else {
-        salvarTest();
     }
 }
 
@@ -76,7 +56,17 @@ function puxarFuncaoNome(contador) {
     campo.appendChild(criacao);
 }
 
+function listaCompletaTeste() {
+    if (arrayLista.length == campo.length) {
+        alert("*** Lista já está atualizada! ***");
+    } else {
+        arrayLista.shift(campo.length);
+        listaCompleta();
+    }
+}
+
 function listaCompleta() {
+    listaCompletaTeste();
     for (var contador = 0; contador < arrayLista.length; contador++) {
         espacoAppend();
         puxarFuncaoCodigo(contador);
