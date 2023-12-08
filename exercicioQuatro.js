@@ -8,8 +8,6 @@ var arrayLista = [];
 
 // ---------------
 
-var contagemHTML = document.querySelectorAll('p').length;
-
 
 // ---------------
 
@@ -18,7 +16,7 @@ function criarObjeto(codigoGo, nomeGo) {
 }
 
 function espacoAppend() {
-    var criacaoO = document.createElement("p");
+    var criacaoO = document.createElement("div");
     let espaco = document.createElement("br");
     criacaoO.appendChild(espaco);
     campo.appendChild(criacaoO);
@@ -63,23 +61,25 @@ function puxarCodigo(parametro) {
 }
 
 function puxarFuncaoCodigo(contador) {
-    let criacao = document.createElement("p");
+    let criacao = document.createElement("div");
     let codigoCriar = document.createTextNode("Código: " + puxarCodigo(contador));
     criacao.appendChild(codigoCriar);
     campo.appendChild(criacao);
 }
 
 function puxarFuncaoNome(contador) {
-    let criacao = document.createElement("p");
+    let criacao = document.createElement("div");
     let texto = document.createTextNode("Nome: " + puxarNome(contador));
     criacao.appendChild(texto);
     campo.appendChild(criacao);
 }
 
+var contagemHTML = 0;
 function listaCompleta() {
     for (var contador = 0; contador < arrayLista.length; contador++) {
         espacoAppend();
         puxarFuncaoCodigo(contador);
         puxarFuncaoNome(contador);
+        contagemHTML++;
     }
 }
